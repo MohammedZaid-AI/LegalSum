@@ -70,7 +70,9 @@ def split_text(text):
 def indianTrans(text, lang_code):
     """Translate text to the specified Indian language using NLLB."""
     inputs = tokenizer(text, return_tensors="pt")
-    translated_tokens = model.generate(**inputs, forced_bos_token_id=tokenizer.convert_tokens_to_ids(lang_code))
+    translated_tokens = model.generate(**inputs, 
+    max_length=1024,
+    forced_bos_token_id=tokenizer.convert_tokens_to_ids(lang_code))
     return tokenizer.batch_decode(translated_tokens, skip_special_tokens=True)[0]
 
 
@@ -83,6 +85,9 @@ summary_prompt = PromptTemplate(
     {text}
     
     Summary:
+
+
+
     """
 )
 
