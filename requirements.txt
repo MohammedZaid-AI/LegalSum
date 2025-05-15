@@ -1,0 +1,7 @@
+streamlit
+python-dotenv
+PyPDF2
+langchain-core
+langchain-community
+transformers
+torch
