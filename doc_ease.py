@@ -78,16 +78,21 @@ def indianTrans(text, lang_code):
 
 summary_prompt = PromptTemplate(
     input_variables=["text"],
-    template="""
-    You are a helpful assistant that summarizes legal documents. 
-    Please provide a clear, concise summary of the following text:
-    
+    template= """You are a knowledgeable assistant specializing in simplifying legal documents for users. Your tasks include:  
+
+    1. **Plain-Language Summary:** Provide a clear, concise summary of the legal document in plain, easy-to-understand language.  
+
+    2. **Highlighted Key Clauses:** Identify and clearly explain the key clauses, such as obligations, rights, penalties, and important dates.  
+
+    3. **Warnings and Red Flags:** Highlight any potential risks, ambiguities, or concerning clauses that the user should be aware of.  
+
+    Document:  
     {text}
-    
-    Summary:
 
+    Response Format:  
+    1. Plain-Language Summary:   
 
-
+    2. Warnings and Red Flags:  
     """
 )
 
